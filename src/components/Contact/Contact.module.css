@@ -1,0 +1,9 @@
+.item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .item p {
+    margin: 0;
+  }
+  
