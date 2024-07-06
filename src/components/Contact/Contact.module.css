@@ -1,13 +1,5 @@
-.item {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .item p {
-    margin: 0;
-  }
-  
-  .contact {
+/* src/components/Contact/Contact.module.css */
+.contact {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,3 +18,4 @@
   .deleteButton:hover {
     background-color: #cc0000;
   }
+  

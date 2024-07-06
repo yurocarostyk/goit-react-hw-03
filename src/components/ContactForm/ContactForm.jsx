@@ -5,17 +5,14 @@ import * as Yup from 'yup';
 import styles from './ContactForm.module.css';
 
 const ContactForm = ({ addContact }) => {
-  const initialValues = { name: '', number: '' };
+  const initialValues = {
+    name: '',
+    number: '',
+  };
 
   const validationSchema = Yup.object({
-    name: Yup.string()
-      .min(3, 'Must be at least 3 characters')
-      .max(50, 'Must be 50 characters or less')
-      .required('Required'),
-    number: Yup.string()
-      .min(3, 'Must be at least 3 characters')
-      .max(50, 'Must be 50 characters or less')
-      .required('Required'),
+    name: Yup.string().min(3, 'Мінімум 3 символи').max(50, 'Максимум 50 символів').required('Обов\'язкове поле'),
+    number: Yup.string().required('Обов\'язкове поле'),
   });
 
   const handleSubmit = (values, { resetForm }) => {
@@ -24,23 +21,19 @@ const ContactForm = ({ addContact }) => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
+    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
       <Form className={styles.form}>
-        <label>
-          Name
-          <Field type="text" name="name" />
+        <div className={styles.field}>
+          <label htmlFor="name">Name</label>
+          <Field type="text" id="name" name="name" />
           <ErrorMessage name="name" component="div" className={styles.error} />
-        </label>
-        <label>
-          Number
-          <Field type="tel" name="number" />
+        </div>
+        <div className={styles.field}>
+          <label htmlFor="number">Number</label>
+          <Field type="text" id="number" name="number" />
           <ErrorMessage name="number" component="div" className={styles.error} />
-        </label>
-        <button type="submit">Add Contact</button>
+        </div>
+        <button type="submit">Add contact</button>
       </Form>
     </Formik>
   );
